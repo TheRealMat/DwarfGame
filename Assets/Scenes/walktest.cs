@@ -9,7 +9,10 @@ public class walktest : MonoBehaviour
     {
         TickSystem.OnTick += delegate (object sender, TickSystem.OnTickEventArgs e)
         {
+            //transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+            gameObject.GetComponent<SpriteRenderer>().sprite = GameObject.Find("GameManager").GetComponent<AnimationHandler>().Walk(gameObject.GetComponent<SpriteRenderer>().sprite);
             transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+
         };
     }
 

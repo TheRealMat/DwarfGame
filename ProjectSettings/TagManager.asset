@@ -38,6 +38,24 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Wall
+    uniqueID: 2199717975
+    locked: 0
+  - name: Door
+    uniqueID: 2011892929
+    locked: 0
+  - name: DoorEnterLayer
+    uniqueID: 466367599
+    locked: 0
+  - name: Background
+    uniqueID: 3474088785
+    locked: 0
+  - name: MiddleGround
+    uniqueID: 823740245
+    locked: 0
+  - name: ForeGround
+    uniqueID: 363672575
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

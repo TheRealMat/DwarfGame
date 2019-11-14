@@ -9,12 +9,47 @@ public class walktest : MonoBehaviour
     {
         TickSystem.OnTick += delegate (object sender, TickSystem.OnTickEventArgs e)
         {
-            //transform.position = new Vector2(transform.position.x + 1, transform.position.y);
-            gameObject.GetComponent<SpriteRenderer>().sprite = GameObject.Find("GameManager").GetComponent<AnimationHandler>().Walk(gameObject.GetComponent<SpriteRenderer>().sprite);
-            transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+            if (transform.position.x != 0)
+            {
+                WalkTo(0);
+            }
+            if (transform.position.x == 0)
+            {
+                Mine();
+            }
+
 
         };
     }
+
+    private void WalkTo(int locationX)
+    {
+        // walk to 0
+        if (transform.position.x != locationX)
+        {
+            // walk right to 0
+            if (transform.position.x < locationX)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = GameObject.Find("GameManager").GetComponent<AnimationHandler>().Minek(gameObject.GetComponent<SpriteRenderer>().sprite);
+                transform.position = new Vector2(transform.position.x + 1, transform.position.y);
+            }
+            // walk left to 0
+            if (transform.position.x > locationX)
+            {
+                gameObject.GetComponent<SpriteRenderer>().sprite = GameObject.Find("GameManager").GetComponent<AnimationHandler>().Minek(gameObject.GetComponent<SpriteRenderer>().sprite);
+                transform.position = new Vector2(transform.position.x - 1, transform.position.y);
+            }
+        }
+    }
+    private void Mine()
+    {
+        if (transform.position.x == 0)
+        {
+            gameObject.GetComponent<SpriteRenderer>().sprite = GameObject.Find("GameManager").GetComponent<AnimationHandler>().Mine(gameObject.GetComponent<SpriteRenderer>().sprite);
+
+        }
+    }
+
 
     // Update is called once per frame
     void Update()
